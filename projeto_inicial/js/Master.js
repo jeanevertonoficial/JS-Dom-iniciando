@@ -8,6 +8,11 @@ const criarTarefa = (evento) => {
   const input = document.querySelector("[data-form-input]"); // coleta a informação do input
   const valor = input.value; // pega a informação e retorna oque foi passado
 
+
+  const calendario = document.querySelector("[data-form-date]");
+  const data = moment(calendario.value);
+  console.log(data.format('DD/MM/YYYY'));
+
   const tarefa = document.createElement("li");
   tarefa.classList.add("task");
   const conteudo = `<p class="content">${valor}</p>`; // pegando oque foi passado no input
