@@ -1,3 +1,6 @@
+import BotaoConclui from "./ConcluiTarefa.js";
+import BotaoDeleta from "./DeletaTarefa.js";
+
 const criarTarefa = (evento) => {
   evento.preventDefault();
 
@@ -12,6 +15,7 @@ const criarTarefa = (evento) => {
   tarefa.innerHTML = conteudo;
 
   tarefa.appendChild(BotaoConclui()); // criando o botao dentro da li
+  tarefa.appendChild(BotaoDeleta());
   lista.appendChild(tarefa);
   input.value = " "; // limpo o input
 };
@@ -21,12 +25,3 @@ const novaTarefa = document.querySelector("[data-form-button]");
 // criando um evento de click
 novaTarefa.addEventListener("click", criarTarefa);
 // criando um botao
-const BotaoConclui = () => {
-  const botaoConclui = document.createElement("button");
-
-  botaoConclui.addEventListener("click", () => {
-    console.log("fui clicado");
-  });
-
-  return botaoConclui;
-};
