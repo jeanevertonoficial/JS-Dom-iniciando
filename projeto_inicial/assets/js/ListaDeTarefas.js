@@ -1,3 +1,5 @@
 const novaTarefa = document.querySelector("[data-form-button]");
-
-console.log(novaTarefa)
+// criando um evento de click 
+novaTarefa.addEventListener("click", () => {
+  console.log("fui clicado");
+});
