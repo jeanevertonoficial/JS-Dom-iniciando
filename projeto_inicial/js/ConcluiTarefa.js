@@ -1,20 +1,22 @@
-const BotaoConclui = () => {
+// criando o efeito de risco ao clicar no botão
+const concluirTarefa = (atualiza, id) => {
+  const tarefaCadastradas = JSON.parse(localStorage.getItem("tarefas"));
+
+  tarefaCadastradas[id].concluida = !tarefaCadastradas[id].concluida;
+
+  localStorage.setItem("tarefas", JSON.stringify(tarefaCadastradas));
+
+  atualiza();
+};
+
+const BotaoConclui = (atualiza, id) => {
   const botaoConclui = document.createElement("button");
 
   botaoConclui.classList.add("check-button");
   botaoConclui.innerText = "concluir";
-  botaoConclui.addEventListener("click", concluirTarefa);
+  botaoConclui.addEventListener("click", () => concluirTarefa(atualiza, id));
 
   return botaoConclui;
-};
-
-// criando o efeito de risco ao clicar no botão
-const concluirTarefa = (evento) => {
-  const botaoConclui = evento.target;
-
-  const tarefaCompleta = botaoConclui.parentElement;
-
-  tarefaCompleta.classList.toggle("done"); // cria o efeito de risco
 };
 
 export default BotaoConclui;
